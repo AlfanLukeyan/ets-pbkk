@@ -16,7 +16,6 @@ return new class extends Migration
             $table->timestamps();
             $table->foreignId('patient_id');
             $table->foreignId('doctor_id');
-            $table->string('name');
             $table->string('diagnosis');
             $table->float('temperature');
             $table->string('image');

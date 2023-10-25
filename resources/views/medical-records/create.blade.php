@@ -21,7 +21,7 @@
                         </div>
 
                         <div>
-                            <x-input-label for="diagnosis" value="diagnosis" />
+                            <x-input-label for="diagnosis" value="Diagnosis" />
                             <x-textarea-input id="diagnosis" name="diagnosis" class="mt-1 block w-full" required
                                 autofocus>{{ $product->diagnosis ?? old('diagnosis') }}</x-textarea-input>
                             <x-input-error class="mt-2" :messages="$errors->get('diagnosis')" />
@@ -29,8 +29,8 @@
 
                         <div>
                             <x-input-label for="temperature" value="Temperature" />
-                            <x-textarea-input id="temperature" name="temperature" class="mt-1 block w-full"
-                                autofocus>{{ $product->temperature ?? old('temperature') }}</x-textarea-input>
+                            <x-text-input id="temperature" name="temperature" class="mt-1 block w-full"
+                                autofocus>{{ $product->temperature ?? old('temperature') }}</x-text-input>
                             <x-input-error class="mt-2" :messages="$errors->get('temperature')" />
                         </div>
 
@@ -39,24 +39,21 @@
                             <x-input-label for="patient" value="Patient" />
                             <select id="patient"
                                 name="condition_id" class="mt-1 bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5">
-                                @foreach ($conditions as $patient)
+                                @foreach ($patients as $patient)
                                     <option value="{{ $patient->id }}">{{ $patient->name }}</option>
                                 @endforeach
                             </select>
                         </div>
 
                         <div>
-                            <x-input-label for="doctor" value="doctor" />
+                            <x-input-label for="doctor" value="Doctor" />
                             <select id="doctor"
                                 name="type_id" class="mt-1 bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5">
-                                @foreach ($types as $doctor)
+                                @foreach ($doctors as $doctor)
                                     <option value="{{ $doctor->id }}">{{ $doctor->name }}</option>
                                 @endforeach
                             </select>
                         </div>
-
-                       
-
 
                         <div>
                             <x-input-label for="image" value="Image" />

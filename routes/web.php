@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\MedicalRecordController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -22,7 +23,7 @@ Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
 
-Route::resource('/medical-records', ProductController::class, ['names' => [
+Route::resource('/medical-records', MedicalRecordController::class, ['names' => [
     'index' => 'medical-records.index',
     'show' => 'medical-records.show',
     'create' => 'medical-records.create',

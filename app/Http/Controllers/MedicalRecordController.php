@@ -12,7 +12,9 @@ class MedicalRecordController extends Controller
     public function index()
     {
         $medical_records = MedicalRecord::all();
-        return view('medical-records.index', ['medical-records' => $medical_records]);
+        return view('medical-records.index', [
+            'medical_records' => $medical_records],
+        );
     }
 
     public function create()
@@ -28,7 +30,6 @@ class MedicalRecordController extends Controller
     public function store(Request $request)
     {
         $validatedData = $request->validate([
-            'name' => 'required|max:255',
             'diagnosis' => 'required',
             'temperature' => 'required|numeric|between:35,45.5',
             'image' => 'required|image|mimes:pdf,jpeg,png,jpg|max:10048',
@@ -48,26 +49,25 @@ class MedicalRecordController extends Controller
         return redirect()->route('medical-records.index')->with('Failed', 'Error creating new medical record');
     }
 
-    public function show(MedicalRecord $medicalRecord)
+    public function show(MedicalRecord $medical_record)
     {
-        return view('medical-records.show', ['medicalRecord' => $medicalRecord]);
+        return view('medical-records.show', ['medical_record' => $medical_record]);
     }
 
-    public function edit(MedicalRecord $medicalRecord)
+    public function edit(MedicalRecord $medical_record)
     {
         $patients = Patient::all();
         $doctors = Doctor::all();
         return view('medical-records.edit', [
-            'medicalRecord' => $medicalRecord,
+            'diagnosis' => $medical_record->diagnosis,
             'patients' => $patients,
             'doctors' => $doctors
         ]);
     }
 
-    public function update(Request $request, MedicalRecord $medicalRecord)
+    public function update(Request $request, MedicalRecord $medical_record)
     {
         $rules = [
-            'name' => 'required|max:255',
             'diagnosis' => 'required',
             'temperature' => 'required|numeric|between:35,45.5',
             'patient_id' => 'required',
@@ -84,7 +84,7 @@ class MedicalRecordController extends Controller
             $validatedData['image'] = $imagePath;
         }
 
-        $update = MedicalRecord::where('id', $medicalRecord->id)->update($validatedData);
+        $update = MedicalRecord::where('id', $medical_record->id)->update($validatedData);
 
         if ($update) {
             return redirect()->route('medical-records.index')->with('success', 'Medical record has been updated!');
@@ -93,9 +93,9 @@ class MedicalRecordController extends Controller
         return redirect()->route('medical-records.index')->with('Failed', 'Error updating medical record');
     }
 
-    public function destroy(MedicalRecord $medicalRecord)
+    public function destroy(MedicalRecord $medical_record)
     {
-        $delete = MedicalRecord::destroy($medicalRecord->id);
+        $delete = MedicalRecord::destroy($medical_record->id);
 
         if ($delete) {
             return redirect()->route('medical-records.index')->with('success', 'Medical record has been deleted!');

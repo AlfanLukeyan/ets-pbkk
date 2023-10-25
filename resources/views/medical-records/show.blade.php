@@ -10,30 +10,12 @@
             <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
                 <div class="p-6 text-gray-900 ">
                     <div class="mb-6">
-                        <h2 class="text-lg font-medium text-gray-900  ">
-                            {{ 'Name' }}
-                        </h2>
-                        
-                        <p class="mt-1 text-sm text-gray-600  ">
-                            {{ $medical-record->name }}   
-                        </p>
-                    </div>
-                    <div class="mb-6">
-                        <h2 class="text-lg font-medium text-gray-900 ">
-                            {{ 'Type' }}
-                        </h2>
-
-                        <p class="mt-1 text-sm text-gray-600 ">
-                            {{ $medical-record->type->name }}
-                        </p>
-                    </div>
-                    <div class="mb-6">
                         <h2 class="text-lg font-medium text-gray-900 ">
                             {{ 'Diagnosis' }}
                         </h2>
 
                         <p class="mt-1 text-sm text-gray-600 ">
-                            {{ $medical-record->diagnosis }}
+                            {{ $medical_record->diagnosis }}
                         </p>
                     </div>
 
@@ -43,7 +25,7 @@
                         </h2>
 
                         <p class="mt-1 text-sm text-gray-600  ">
-                            {{ $medical-record->fault }}
+                            {{ $medical_record->temperature }}
                         </p>
                     </div>
                     <div class="mb-6">
@@ -52,7 +34,7 @@
                         </h2>
                 
                         <p class="mt-1 text-sm text-gray-600">
-                            <img class="h-64 w-128" src="{{ asset('storage/' . $medical-record->image) }}" alt="{{ $medical-record->name }}" srcset="">
+                            <img class="h-64 w-128" src="{{ asset('storage/' . $medical_record->image) }}" alt="{{ $medical_record->name }}" srcset="">
                         </p>
                     </div>
                     <div class="mb-6">
@@ -61,7 +43,7 @@
                         </h2>
 
                         <p class="mt-1 text-sm text-gray-600 ">
-                            {{ $medical-record->doctor->name }}
+                            {{ $medical_record->doctor->name }}
                         </p>
                     </div>
                     <div class="mb-6">
@@ -70,7 +52,7 @@
                         </h2>
 
                         <p class="mt-1 text-sm text-gray-600 ">
-                            {{ $medical-record->created_at }}
+                            {{ $medical_record->created_at }}
                         </p>
                     </div>
                     <div class="mb-6">
@@ -79,7 +61,7 @@
                         </h2>
 
                         <p class="mt-1 text-sm text-gray-600  ">
-                            {{ $medical-record->updated_at }}
+                            {{ $medical_record->updated_at }}
                         </p>
                     </div>
                     <a href="{{ route('medical-records.index') }}" class="bg-blue-500 text-white px-4 py-2 rounded-md">BACK</a>

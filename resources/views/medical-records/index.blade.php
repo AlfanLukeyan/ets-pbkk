@@ -44,7 +44,7 @@
                     <table class="border-collapse table-auto w-full text-sm">
                         <thead>
                             <tr>
-                                <th class="border-b font-medium p-4 pl-8 pt-0 pb-3 text-slate-900 text-left">Name</th>
+                                <th class="border-b font-medium p-4 pl-8 pt-0 pb-3 text-slate-900 text-left">Diagnosis</th>
                                 <th
                                     class="border-b flex items-center justify-end font-medium p-4 pl-8 pt-0 pb-3 text-slate-900 text-left ">
                                     Action
@@ -53,19 +53,17 @@
                         </thead>
                         <tbody class="bg-white">
                             {{-- populate our post data --}}
-                            @foreach ($medical-records as $medical-records)
+                            @foreach ($medical_records as $medical_record)
                                 <tr>
                                     <td class="border-b border-slate-100 p-4 pl-8 text-slate-500">
-                                        {{ $medical-records->name }}</td>
-                                    <td class="border-b border-slate-100 p-4 pl-8 text-slate-500">
-                                        {{ $medical-records->stock }}</td>
+                                        {{ $medical_record->diagnosis }}</td>
                                     <td
                                         class="flex items-center justify-end border-b border-slate-100 p-4 pl-8 text-slate-500">
-                                        <a href="{{ route('medical-records.show', $medical-records->id) }}"
+                                        <a href="{{ route('medical-records.show', $medical_record->id) }}"
                                             class="mx-2 border border-blue-500 hover:bg-blue-500 hover:text-white px-4 py-2 rounded-md">SHOW</a>
-                                        <a href="{{ route('medical-records.edit', $medical-records->id) }}"
+                                        <a href="{{ route('medical-records.edit', $medical_record->id) }}"
                                             class="mx-2 border border-yellow-500 hover:bg-yellow-500 hover:text-white px-4 py-2 rounded-md">EDIT</a>
-                                        <form method="post" action="{{ route('medical-records.destroy', $medical-records->id) }}"
+                                        <form method="post" action="{{ route('medical-records.destroy', $medical_record->id) }}"
                                             class="inline">
                                             @csrf
                                             @method('delete')
