@@ -32,9 +32,9 @@ class MedicalRecordController extends Controller
         $validatedData = $request->validate([
             'diagnosis' => 'required',
             'temperature' => 'required|numeric|between:35,45.5',
-            'image' => 'required|image|mimes:pdf,jpeg,png,jpg|max:10048',
             'patient_id' => 'required',
             'doctor_id' => 'required',
+            'image' => 'required|image|mimes:pdf,jpeg,png,jpg|max:10048',
         ]);
 
         $imagePath = $request->file('image')->store('prescriptions', 'public');
@@ -59,9 +59,9 @@ class MedicalRecordController extends Controller
         $patients = Patient::all();
         $doctors = Doctor::all();
         return view('medical-records.edit', [
-            'diagnosis' => $medical_record->diagnosis,
             'patients' => $patients,
-            'doctors' => $doctors
+            'doctors' => $doctors,
+            'medical_record' => $medical_record
         ]);
     }
 
@@ -72,6 +72,7 @@ class MedicalRecordController extends Controller
             'temperature' => 'required|numeric|between:35,45.5',
             'patient_id' => 'required',
             'doctor_id' => 'required',
+            'image' => 'required|image|mimes:pdf,jpeg,png,jpg|max:10048',
         ];
 
         $validatedData = $request->validate($rules);

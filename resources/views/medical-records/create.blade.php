@@ -12,14 +12,6 @@
                     <form method="post" action="{{ route('medical-records.store') }}" class="mt-6 space-y-6"
                         enctype="multipart/form-data" class="mt-6 space-y-6">
                         @csrf
-
-                        <div>
-                            <x-input-label for="name" value="Name" />
-                            <x-text-input id="name" name="name" type="text" class="mt-1 block w-full"
-                                :value="$product->name ?? old('name')" required autofocus />
-                            <x-input-error class="mt-2" :messages="$errors->get('name')" />
-                        </div>
-
                         <div>
                             <x-input-label for="diagnosis" value="Diagnosis" />
                             <x-textarea-input id="diagnosis" name="diagnosis" class="mt-1 block w-full" required
@@ -33,7 +25,6 @@
                                 autofocus>{{ $product->temperature ?? old('temperature') }}</x-text-input>
                             <x-input-error class="mt-2" :messages="$errors->get('temperature')" />
                         </div>
-
 
                         <div>
                             <x-input-label for="patient" value="Patient" />

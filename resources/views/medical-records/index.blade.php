@@ -3,7 +3,7 @@
         <h2 class="font-semibold text-xl text-gray-800 leading-tight flex justify-between items-center">
             {{ __('Medical Record') }}
             <a href="{{ route('medical-records.create') }}"
-                class="bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded-md">+ ADD</a>
+                class="bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded-full   ">+</a>
         </h2>
     </x-slot>
 
@@ -44,6 +44,8 @@
                     <table class="border-collapse table-auto w-full text-sm">
                         <thead>
                             <tr>
+                                <th class="border-b font-medium p-4 pl-8 pt-0 pb-3 text-slate-900 text-left">Patient</th>
+                                <th class="border-b font-medium p-4 pl-8 pt-0 pb-3 text-slate-900 text-left">Doctor</th>
                                 <th class="border-b font-medium p-4 pl-8 pt-0 pb-3 text-slate-900 text-left">Diagnosis</th>
                                 <th
                                     class="border-b flex items-center justify-end font-medium p-4 pl-8 pt-0 pb-3 text-slate-900 text-left ">
@@ -55,6 +57,10 @@
                             {{-- populate our post data --}}
                             @foreach ($medical_records as $medical_record)
                                 <tr>
+                                    <td class="border-b border-slate-100 p-4 pl-8 text-slate-500">
+                                        {{ $medical_record->patient->name }}</td>
+                                    <td class="border-b border-slate-100 p-4 pl-8 text-slate-500">
+                                        {{ $medical_record->doctor->name }}</td>
                                     <td class="border-b border-slate-100 p-4 pl-8 text-slate-500">
                                         {{ $medical_record->diagnosis }}</td>
                                     <td

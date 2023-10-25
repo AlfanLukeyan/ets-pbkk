@@ -9,18 +9,10 @@
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
                 <div class="p-6 text-gray-900">
-                    <form method="post" action="{{ route('products.update', $medical_record->id) }}" class="mt-6 space-y-6"
+                    <form method="post" action="{{ route('medical-records.update', $medical_record->id) }}" class="mt-6 space-y-6"
                         enctype="multipart/form-data" class="mt-6 space-y-6">
                         @csrf
                         @method('put')
-
-                        <div>
-                            <x-input-label for="name" value="Name" />
-                            <x-text-input id="name" name="name" type="text" class="mt-1 block w-full"
-                                :value="$medical_record->name ?? old('name')" required autofocus />
-                            <x-input-error class="mt-2" :messages="$errors->get('name')" />
-                        </div>
-
                         <div>
                             <x-input-label for="diagnosis" value="Diagnosis" />
                             <x-textarea-input id="diagnosis" name="diagnosis" class="mt-1 block w-full" required
@@ -40,7 +32,7 @@
                             <x-input-label for="patient" value="Patient" />
                             <select id="patient"
                                 name="condition_id" class="mt-1 bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5">
-                                @foreach ($conditions as $patient)
+                                @foreach ($patients as $patient)
                                     <option value="{{ $patient->id }}">{{ $patient->name }}</option>
                                 @endforeach
                             </select>
@@ -50,7 +42,7 @@
                             <x-input-label for="doctor" value="Doctor" />
                             <select id="doctor"
                                 name="type_id" class="mt-1 bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5">
-                                @foreach ($types as $doctor)
+                                @foreach ($doctors as $doctor)
                                     <option value="{{ $doctor->id }}">{{ $doctor->name }}</option>
                                 @endforeach
                             </select>
