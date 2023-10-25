@@ -22,6 +22,16 @@ Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
 
+Route::resource('/medical-records', ProductController::class, ['names' => [
+    'index' => 'medical-records.index',
+    'show' => 'medical-records.show',
+    'create' => 'medical-records.create',
+    'store' => 'medical-records.store',
+    'edit' => 'medical-records.edit',
+    'update' => 'medical-records.update',
+    'destroy' => 'medical-records.destroy',
+]])->middleware(['auth', 'verified']);
+
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');

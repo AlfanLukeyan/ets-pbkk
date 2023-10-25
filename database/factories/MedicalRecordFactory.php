@@ -20,7 +20,7 @@ class MedicalRecordFactory extends Factory
             'patient_id' => $this->faker->numberBetween(1, 5),
             'doctor_id' => $this->faker->numberBetween(1, 3),
             'name' => $this->faker->sentence($this->faker->numberBetween(1, 5)),
-            'diagnosis' => collect($this->faker->paragraphs($this->faker->numberBetween(4, 7)))->implode(''),
+            'diagnosis' => $this->faker->sentence(10),
             'temperature' => $this->faker->randomFloat(1, 35, 45.5),
             'image' => 'prescriptions/' . $this->faker->image('public/storage/prescriptions', 640, 480, null, false),
         ];

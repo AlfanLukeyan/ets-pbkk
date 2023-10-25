@@ -11,8 +11,8 @@ class MedicalRecordController extends Controller
 {
     public function index()
     {
-        $medicalRecords = MedicalRecord::all();
-        return view('medical-records.index', ['medicalRecords' => $medicalRecords]);
+        $medical_records = MedicalRecord::all();
+        return view('medical-records.index', ['medical-records' => $medical_records]);
     }
 
     public function create()
