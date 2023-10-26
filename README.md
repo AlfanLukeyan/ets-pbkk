@@ -24,5 +24,11 @@
 - Add New Medical Record
 ![Add New Medical Record](https://github.com/AlfanLukeyan/trash/blob/main/ets-pbkk/Screenshot%202023-10-25%20at%2021.46.41.png?raw=true)
 
+- Alert Success Add New Medical Record
+![Alert Success Add New Medical Record](https://github.com/AlfanLukeyan/trash/blob/main/ets-pbkk/Screenshot%202023-10-26%20at%2014.52.47.png?raw=true)
+
+- Alert Delete Medical Record
+![Alert Delete Medical Record](https://github.com/AlfanLukeyan/trash/blob/main/ets-pbkk/Screenshot%202023-10-26%20at%2014.52.12.png?raw=true)
+
 - View Medical Record
 ![View Medical Record](https://github.com/AlfanLukeyan/trash/blob/main/ets-pbkk/Screenshot%202023-10-25%20at%2021.47.03.png?raw=true)

@@ -64,7 +64,7 @@
                             {{ $medical_record->updated_at }}
                         </p>
                     </div>
-                    <a href="{{ route('medical-records.index') }}" class="bg-blue-500 text-white px-4 py-2 rounded-md">BACK</a>
+                    <a href="{{ route('medical-records.index') }}" class="bg-black text-white px-4 py-2 rounded-md">BACK</a>
                 </div>
             </div>
         </div>

@@ -29,7 +29,7 @@ class MedicalRecordController extends Controller
 
     public function store(Request $request)
     {
-        $validatedData = $request->validate([
+        $request->validate([
             'diagnosis' => 'required',
             'temperature' => 'required|numeric|between:35,45.5',
             'patient_id' => 'required',
@@ -37,11 +37,19 @@ class MedicalRecordController extends Controller
             'image' => 'required|image|mimes:pdf,jpeg,png,jpg|max:10048',
         ]);
 
+        $validatedData = 
+        [
+            'diagnosis' => $request->diagnosis,
+            'temperature' => $request->temperature,
+            'patient_id' => $request->patient_id,
+            'doctor_id' => $request->doctor_id,
+        ];
+        
         $imagePath = $request->file('image')->store('prescriptions', 'public');
         $validatedData['image'] = $imagePath;
-
+        
         $create = MedicalRecord::create($validatedData);
-
+        
         if ($create) {
             return redirect()->route('medical-records.index')->with('success', 'New medical record has been added!');
         }
